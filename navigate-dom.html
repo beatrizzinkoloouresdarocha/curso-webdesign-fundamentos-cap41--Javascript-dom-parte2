@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
 <body>
     <h1>teste Dom</h1>
 
@@ -10,19 +17,31 @@
         <ul>
             <li>item 1</li>
             <li>item 2
-        </ul>
-        <li>item 2.a</li>
-        <li>item 2.b</li>
-        <li>item 2.c</li>
-        <ul>
-    </li>
-        <li>item <a href="#">link</a></li>
+                <ul>
+                    <li>item 2.a</li>
+                    <li>item 2.b</li>
+                    <li>item 2.c</li>
+                </ul>
+            </li>
+            <li>item <a href="#">link</a></li>
         </ul>
     </div>
-        <script>
 
-            console.log(document.body)
-            console.log(document.parentElement)
-            console.log(document.parentNode)
-        </script>
+    <script>
+        console.log(document.body);
+        console.log(document.documentElement.parentElement); // O elemento <html> não possui pai
+        console.log(document.documentElement.parentNode); // O elemento <html> não possui pai
+
+        const html = document.documentElement; // Acessa diretamente o elemento <html>
+
+        console.log(document.body.parentElement === document.documentElement.parentElement);
+
+        console.log(html.parentElement); // null, pois o elemento <html> não possui pai
+        console.log(html.parentNode); // null, pois o elemento <html> não possui pai
+
+        const h2 = document.querySelector("h2");
+        const h2NextSibling = h2.nextElementSibling;
+        h2NextSibling.style.backgroundColor = "yellow";
+    </script>
 </body>
+</html>
